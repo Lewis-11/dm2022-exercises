@@ -42,8 +42,8 @@ for i in range(10):
 
 # Print r iteration by iteration
 for i in range(len(r)):
-    print(f"`[i] Iteration {i}:`\n")
-    print('<span style="color:orange">**', end="")
+    print(f"[i] Iteration {i}:")
+
     for j in range(len(r[i])):
-        print(f"{r[i][j]:.3f}" + "&nbsp;" * 4, end="")
-    print("**</span>\n")
+        print(f"{r[i][j]:.3f}\t", end="")
+    print("\n")
