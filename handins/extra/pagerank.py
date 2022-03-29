@@ -1,24 +1,8 @@
 import numpy as np
 
-adjacencyMatrix = [
-    [0, 0, 0, 0, 1, 1, 1],
-    [0, 0, 0, 0, 1, 1, 1],
-    [0, 0, 0, 0, 1, 1, 1],
-    [0, 0, 0, 0, 1, 1, 1],
-    [1, 1, 1, 1, 0, 0, 0],
-    [1, 1, 1, 1, 0, 0, 0],
-    [1, 1, 1, 1, 0, 0, 0],
-]
+adjacencyMatrix = [[0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0]]
 
-outDegreeMatrix = [
-    [3, 0, 0, 0, 0, 0, 0],
-    [0, 3, 0, 0, 0, 0, 0],
-    [0, 0, 3, 0, 0, 0, 0],
-    [0, 0, 0, 3, 0, 0, 0],
-    [0, 0, 0, 0, 4, 0, 0],
-    [0, 0, 0, 0, 0, 4, 0],
-    [0, 0, 0, 0, 0, 0, 4],
-]
+outDegreeMatrix = [[1, 0, 0, 0], [0, 3, 0, 0], [0, 0, 2, 0], [0, 0, 0, 2]]
 
 n_nodes = len(adjacencyMatrix)
 
@@ -35,8 +19,8 @@ outDegreeMatrix = np.array(outDegreeMatrix)
 
 
 M = np.dot(adjacencyMatrix.T, np.linalg.inv(outDegreeMatrix))
-
-for i in range(10):
+print(M)
+for i in range(30):
     r.append(np.dot(M, r[-1]))
 
 
@@ -45,5 +29,5 @@ for i in range(len(r)):
     print(f"[i] Iteration {i}:")
 
     for j in range(len(r[i])):
-        print(f"{r[i][j]:.3f}\t", end="")
+        print(f"{r[i][j]}\t", end="")
     print("\n")
